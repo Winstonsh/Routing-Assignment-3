@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink, Route, Switch, Redirect } from 'react-router-dom';
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
+import NoMatch from './component/NoMatch/NoMatch';
 
 class App extends Component {
   render () {
@@ -20,8 +21,11 @@ class App extends Component {
                 <li style={{margin: '10px', display: 'inline-block'}}><NavLink to="/courses">Courses</NavLink></li>
               </ul>
             </nav>
-          <Route path="/users" component={Users}></Route>
-          <Route path="/courses" component={Courses}></Route>
+            <Switch>
+              <Route path="/users" component={Users}/>
+              <Route path="/courses" component={Courses}/>
+              <Route component={NoMatch}></Route>
+            </Switch>
         </div>
     );
   }

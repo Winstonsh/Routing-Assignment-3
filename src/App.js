@@ -24,7 +24,8 @@ class App extends Component {
             <Switch>
               <Route path="/users" component={Users}/>
               <Route path="/courses" component={Courses}/>
-              <Route component={NoMatch}></Route>
+              <Redirect path="/all-courses" to="/courses"/>
+              <Route component={NoMatch}/>
             </Switch>
         </div>
     );

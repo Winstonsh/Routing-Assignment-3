@@ -22,14 +22,14 @@ class Courses extends Component {
                     {
                         this.state.courses.map( course => {
                             return (
-                                <Link key={course.id} to={this.props.match.url + '/course/' + course.id}>
+                                <Link key={course.id} to={this.props.match.url + '/' + course.id + '/' + course.title}>
                                     <article className="Course">{course.title}</article>
                                 </Link>
                             );
                         } )
                     }
                 </section>
-                <Route path={this.props.match.url + '/course/:id'} component={Course}/>
+                <Route path={this.props.match.url + '/:id/:title'} component={Course}/>
             </div>
         );
     }
